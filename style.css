@@ -1,4 +1,37 @@
-.task-container{
+main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-container,.complete-container{
     display: flex;
     flex-direction: column;
 }
+
+.task{
+    display: flex;
+}
+
+.complete{
+    display: flex;
+}
+
+button{
+    align-self: center;
+}
+#add{
+    align-self: center;
+    margin: 20px;
+}
+
+#clear{
+    align-self: center;
+    margin: 20px;
+}
+
+p{
+    margin: 20px;
+}
+
+
+
