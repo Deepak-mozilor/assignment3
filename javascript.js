@@ -4,11 +4,21 @@ const add=document.getElementById('add');
 
 add.addEventListener('click', addTask);
 
+
 function addTask(){
     let task_text = prompt("Please add your Task!");
     count++;
     task_arr.push({ id : count, text: task_text, completed : false});
 
+    render();
+}
+
+
+function deleteTask(event){
+    const id = Number(event.target.id);
+
+    let index=task_arr.filter(item => item.id === id);
+    task_arr.splice(index,1);
     render();
 }
 
@@ -22,6 +32,7 @@ function render(){
         const mark=document.createElement('button');
 
         del.setAttribute('class','delete');
+        del.setAttribute('id',count);
         mark.setAttribute('class','mark_done');
         para.style.display = "inline-block";
 
@@ -34,4 +45,9 @@ function render(){
         task.appendChild(mark);
         container.appendChild(task);
     }
+    const delete_btn=document.querySelectorAll('.delete');
+
+    delete_btn.forEach(del => {
+        del.addEventListener('click',deleteTask);
+    });
 }
