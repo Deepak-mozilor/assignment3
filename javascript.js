@@ -1,11 +1,12 @@
-let task_arr=[];
-let count=0;
+let task_arr = JSON.parse(localStorage.getItem("tasks")) || [];
+let count = task_arr.length;
 const add=document.getElementById('add');
+render();
 
 add.addEventListener('click', addTask);
 
 
-function addTask(){
+function addTask(){                                             
     let task_text = prompt("Please add your Task!");
     count++;
     task_arr.push({ id : count, text: task_text, completed : false});
@@ -31,6 +32,13 @@ function mask_done_task(event){
     render();
 }
 
+const clear_all = document.querySelector('#clear-all');
+
+clear_all.addEventListener('click', () => {
+    task_arr=[];
+    render();
+});
+
 const clear=document.querySelector('#clear');
 
 clear.addEventListener('click', () => {
@@ -39,6 +47,8 @@ clear.addEventListener('click', () => {
 });
 
 function render(){
+    localStorage.setItem("tasks", JSON.stringify(task_arr));
+
     const container=document.querySelector('.task');
     container.textContent='';
 
@@ -106,3 +116,4 @@ function render(){
         });
     });
 }
+

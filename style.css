@@ -1,6 +1,17 @@
+body{
+    background-color: #eef2f7;
+}
+
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    color: #2c3e50;
+}
+
 main{
     display: flex;
     justify-content: space-around;
+    font-family: sans-serif;
 }
 
 .task-container,.complete-container{
@@ -8,17 +19,26 @@ main{
     flex-direction: column;
 }
 
-.task{
-    display: flex;
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin: 10px;
 }
 
-.complete{
-    display: flex;
+button:hover {
+  background-color: #43a047;
 }
 
-button{
-    align-self: center;
+button:active {
+  transform: scale(0.97);
 }
+
 #add{
     align-self: center;
     margin: 20px;
@@ -31,7 +51,14 @@ button{
 
 p{
     margin: 20px;
+    color: #2c3e50;
 }
 
-
-
+.task,.complete{
+    color: #2c3e50;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    
+}
